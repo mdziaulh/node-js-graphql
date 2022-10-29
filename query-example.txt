@@ -1,0 +1,43 @@
+{
+  products{
+    id
+    price
+    description
+  }
+  product(id: "redshoe"){
+    description,
+    price
+  }
+  productsByPrice(min: 30, max: 40){
+    description
+    price
+  }
+	orders{
+    subtotal
+    items{
+      quantity
+      product{
+        price
+        id
+        description
+        reviews{
+          comment
+          rating
+        }
+      }
+    }
+  }
+}
+
+mutation {
+  addNewProduct(id: "orangejacket", description: "Orange Jacket", price: 200.22){
+    description,
+    price,
+    id
+  },
+  addNewProductReview(id: "orangejacket", rating: 5, comment: "An awesome product!") {
+    comment
+  }
+}
+
+
